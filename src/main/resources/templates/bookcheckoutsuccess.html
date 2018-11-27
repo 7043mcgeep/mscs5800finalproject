@@ -1,0 +1,17 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<title>Success!</title>
+	<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+	<meta name="generator" content="Geany 1.33" />
+	<link href="stylesheet.css" rel="stylesheet"/>
+</head>
+
+<body>
+<H2>You have successfully checked out that book.</H2>
+<H3><A th:href="@{'/checkoutmorebooks/' + ${cardno}}">Click here to check out more books</A></H3>
+<H3>Placeholder for link back to welcome page</H3>
+</body>
+
+</html>

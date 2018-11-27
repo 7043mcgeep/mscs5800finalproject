@@ -1,0 +1,38 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<title>Welcome to the Library Database System</title>
+	<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+	<meta name="generator" content="Geany 1.33" />
+</head>
+
+<body>
+   	<p th:text="'Name: ' + ${borrower.name}" />
+    <p th:text="'Address: ' + ${borrower.address}" />
+    <p th:text="'Phone: ' + ${borrower.phone}" />
+    <p th:text="'Card Number: ' + ${borrower.cardno}" />
+   
+    <h1>Books Available for Checking Out</h1>
+    <table class = "prettytable">
+    
+    <tr>
+    <th>Book ID</th>
+    <th>Book Title</th>
+    <th>Library Branch ID</th>
+    <th>Library Branch Name</th>
+    <th>Checkout Link</th>
+    
+    </tr>
+    
+    <tr th:each="availablebook: ${availablebooks}">
+    	<td th:text="${availablebook.bookid}">
+    	<td th:text="${availablebook.title}">
+    	<td th:text="${availablebook.branchid}">
+    	<td th:text="${availablebook.branchname}">
+		<td>    <a th:href="@{'/bookcheckout/' + ${availablebook.bookid} + '@' + ${availablebook.branchid} + '@' + ${borrower.cardno}}">Check Out</a>
+    </tr>
+    </table> 
+</body>
+
+</html>

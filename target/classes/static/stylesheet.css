@@ -1,0 +1,59 @@
+html, body {
+    height: 100%;
+}
+
+html {
+    display: table;
+    margin: auto;
+}
+
+body {
+    background-color: #F7F5EA;
+    display: table-cell;
+    vertical-align: middle;
+    background-image: url("books.png");
+    background-repeat: no-repeat;
+    background-position: 0px -25px;
+    background-attachment: fixed;
+    background-size: 100%;
+}
+
+h1 {
+    color: navy;
+}
+
+h2{
+    margin: auto;
+    width: 90%;
+    padding: 10px;
+}
+
+
+table{
+    margin: auto;
+    width: 50%;
+    padding: 10px;
+}
+
+input{
+    background-color: #B0B0B0; 
+    border: none;
+    color: white;
+    padding: 8px 12px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    margin-right: 10px;
+    margin-top: 10px;
+    transition-duration: 0.7s;
+}
+
+input[type=submit]:hover{
+    background-color: lightblue;
+    padding: 10px 16px;
+}
+
+input[type=reset]:hover{
+    background-color: lightblue;
+    padding: 10px 16px;
+}

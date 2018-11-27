@@ -1,0 +1,24 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<title>Library Database Login Page</title>
+	<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+	<meta name="generator" content="Geany 1.33" />
+	<link href="stylesheet.css" rel="stylesheet"/>
+</head>
+
+<body>
+<H1>Welcome to the Library Database System</H1>
+<H2>Please enter your card number and password:</H2>
+<table>
+<form action="#" th:action="@{/login}" th:object="${borrower}" method="post">
+<tr><td>Card Number</td><td><input type="text" th:field="*{cardno}"/></td></tr>
+<tr><td>Password</td><td><input type="password" th:field="*{password}"/></td></tr>
+<tr><td></td><td><input type="submit"><input type="reset"></td></tr>
+</form>
+</table>	
+<BR></BR><A HREF="register_borrower" style="text-align: center">New user? Please click here to register.</A>
+</body>
+
+</html>

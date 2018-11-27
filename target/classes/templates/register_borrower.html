@@ -1,0 +1,25 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<title>Register a New Borrower</title>
+	<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+	<meta name="generator" content="Geany 1.33" />
+	<link href="stylesheet.css" rel="stylesheet"/>
+</head>
+
+<body>
+<table>
+<H1>Register a new borrower by completing the information below: </H1>
+<form action="#" th:action="@{/register_borrower}" th:object="${borrower}" method="post">
+<tr><td>Card Number</td><td><input type="text" th:field="*{cardno}"/></td></tr>
+<tr><td>Name</td><td><input type="text" th:field="*{name}"/></td></tr>
+<tr><td>Address</td><td><input type="text" th:field="*{address}"/></td></tr>
+<tr><td>Phone</td><td><input type="text" th:field="*{phone}"/></td></tr>
+<tr><td>Password</td><td><input type="password" th:field="*{password}"/></td></tr>
+<tr><td></td><td><input type="submit"><input type="reset"></td></tr>
+</form>
+</table>	
+</body>
+
+</html>

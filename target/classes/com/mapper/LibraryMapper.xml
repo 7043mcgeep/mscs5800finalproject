@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mapper.LibraryMapper">
+	
+	<resultMap id="BorrowerResult" type="com.domain.Borrower">
+		<id property="cardno" column="cardno"/>
+		<result property="name" column="name"/>
+		<result property="address" column="address"/>
+		<result property="phone" column="phone"/>
+		<result property="password" column="password"/>
+	</resultMap>
+
+	<resultMap id="BookLoanResult" type="com.domain.BookLoan">
+		<id property="bookid" column="bookid"/>
+		<result property="branchid" column="branchid"/>
+		<result property="cardno" column="cardno"/>
+		<result property="dateout" column="dateout"/>
+		<result property="duedate" column="duedate"/>
+		<result property="datein" column="datein"/>
+		<result property="rating" column="rating"/>
+	</resultMap>
+
+	<resultMap id="BookViewResult" type="com.domain.BookView">
+		<id property="bookid" column="bookid"/>
+		<result property="title" column="title"/>
+		<result property="branchid" column="branchid"/>
+		<result property="branchname" column="branchname"/>
+	</resultMap>
+
+	<resultMap id="CheckedOutBookResult" type="com.domain.CheckedOutBook">
+		<id property="bookid" column="bookid"/>
+		<result property="title" column="title"/>
+		<result property="dateout" column="dateout"/>
+		<result property="duedate" column="duedate"/>
+	</resultMap>
+
+	<select id="selectBorrowerByCardID" parameterType="String" resultMap="BorrowerResult">
+		SELECT cardno, name, address, phone, password FROM borrower WHERE cardno=#{cardno}
+	</select>
+	
+	<insert id="insertBorrower" parameterType="com.domain.Borrower" keyProperty="cardno">
+		INSERT INTO borrower(cardno,name,address,phone,password) VALUES (#{cardno},#{name},#{address},#{phone},#{password})
+	</insert>
+	
+	<insert id="insertBookLoan" parameterType="com.domain.BookLoan" keyProperty="bookid">
+		INSERT INTO book_loans(bookid,branchid,cardno,dateout,duedate,datein,rating) 
+		VALUES (#{bookid},#{branchid},#{cardno},#{dateout},#{duedate},#{datein, jdbcType=DATE},#{rating, jdbcType=NUMERIC})
+	</insert>
+	
+	<delete id="deleteBorrowerWithCardNo" parameterType="String">
+		DELETE FROM borrower WHERE cardno=#{cardno}
+	</delete>
+	
+	<delete id="deleteBookLoan" parameterType="com.domain.BookLoan">
+		DELETE FROM book_loans WHERE cardno=#{cardno} and bookid=#{bookid} and branchid=#{branchid}
+	</delete>
+	
+	<select id="getAvailableBooks" parameterType="String" resultMap="BookViewResult">
+		SELECT B.BOOKID, B.TITLE, LB.BRANCHID, LB.BRANCHNAME
+		FROM BOOK B, BOOK_COPIES BC, LIBRARY_BRANCH LB
+		WHERE B.BOOKID = BC.BOOKID AND BC.BRANCHID = LB.BRANCHID 
+		AND B.BOOKID NOT IN (SELECT BOOKID FROM BOOK_LOANS WHERE CARDNO = #{cardno})
+	</select>
+	
+	<select id="getCheckedOutBooks" parameterType="String" resultMap="CheckedOutBookResult">
+		SELECT B.BOOKID, B.TITLE, BL.DATEOUT, BL.DUEDATE
+		FROM BOOK B, BOOK_LOANS BL, BORROWER BO, LIBRARY_BRANCH LB
+		WHERE B.BOOKID = BL.BOOKID AND BL.CARDNO = BO.CARDNO 
+		AND LB.BRANCHID = BL.BRANCHID AND BO.CARDNO = #{cardno}
+	</select>
+	
+</mapper>
