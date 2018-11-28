@@ -13,8 +13,10 @@
 <table>
 <tr><td width="500"><p th:text="'Name: ' + ${borrower.name}" /></td></tr>
 <tr><td><p th:text="'Card Number: ' + ${borrower.cardno}" /></td></tr>
-<tr><td><A HREF="checkoutmorebooks/012345">Check out more books</A></td></tr>
-<tr><td><A HREF="login">Logout</A></td></tr>
+<tr><td>
+<a th:href="@{|/checkoutmorebooks/${borrower.cardno}|}">Check out books</a> 
+</td></tr>
+<tr><td><a href="login">Logout</a></td></tr>
 </table>	
 </body>
 
