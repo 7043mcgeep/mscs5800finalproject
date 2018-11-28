@@ -32,10 +32,7 @@
     	<td th:text="${availablebook.branchname}">
 		<td>    <a th:href="@{'/bookcheckout/' + ${availablebook.bookid} + '@' + ${availablebook.branchid} + '@' + ${borrower.cardno}}">Check Out</a>
     </tr>
-    <tr></tr>
-    <base href = "/" />
-    <tr><td><H3><A HREF="login">Logout</A></H3></td></tr>
-    </table>
+    </table> 
 </body>
 
 </html>

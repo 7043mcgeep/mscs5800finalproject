@@ -13,7 +13,7 @@
     <p th:text="'Phone: ' + ${borrower.phone}" />
     <p th:text="'Card Number: ' + ${borrower.cardno}" />
    
-    <h1>Books Available for Checking Out</h1>
+    <h1>Books Aleady Checked Out</h1>
     <table class = "prettytable">
     
     <tr>
@@ -21,16 +21,14 @@
     <th>Book Title</th>
     <th>Library Branch ID</th>
     <th>Library Branch Name</th>
-    <th>Checkout Link</th>
     
     </tr>
     
-    <tr th:each="availablebook: ${availablebooks}">
-    	<td th:text="${availablebook.bookid}">
-    	<td th:text="${availablebook.title}">
-    	<td th:text="${availablebook.branchid}">
-    	<td th:text="${availablebook.branchname}">
-		<td>    <a th:href="@{'/bookcheckout/' + ${availablebook.bookid} + '@' + ${availablebook.branchid} + '@' + ${borrower.cardno}}">Check Out</a>
+    <tr th:each="checkedoutbooks: ${checkedoutbooks}">
+    	<td th:text="${checkedoutbooks.bookid}">
+    	<td th:text="${checkedoutbooks.title}">
+    	<td th:text="${checkedoutbooks.branchid}">
+    	<td th:text="${checkedoutbooks.branchname}">
     </tr>
     </table> 
 </body>

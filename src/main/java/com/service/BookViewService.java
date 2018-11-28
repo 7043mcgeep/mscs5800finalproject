@@ -3,7 +3,9 @@ package com.service;
 import java.util.List;
 
 import com.dao.BookViewDAO;
+import com.dao.CheckedOutBooksDAO;
 import com.domain.BookView;
+import com.domain.CheckedOutBook;
 
 public class BookViewService {
 

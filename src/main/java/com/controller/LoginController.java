@@ -31,7 +31,7 @@ public class LoginController {
 				borr.setPhone(borr2.getPhone());
 				borr.setPassword(borr2.getPassword());
 				borr.setName(borr2.getName());
-				return "loginsuccess";
+				return "checkout";
 			}
 		} else {
 			return "loginerror";
