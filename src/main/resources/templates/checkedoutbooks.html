@@ -19,16 +19,16 @@
     <tr>
     <th>Book ID</th>
     <th>Book Title</th>
-    <th>Date Checked Out</th>
-    <th>Due Date</th>
+    <th>Library Branch ID</th>
+    <th>Library Branch Name</th>
     
     </tr>
     
-    <tr th:each="checkedoutbooks: ${ownedbooks}">
+    <tr th:each="checkedoutbooks: ${checkedoutbooks}">
     	<td th:text="${checkedoutbooks.bookid}">
     	<td th:text="${checkedoutbooks.title}">
-    	<td th:text="${checkedoutbooks.dateout}">
-    	<td th:text="${checkedoutbooks.duedate}">
+    	<td th:text="${checkedoutbooks.branchid}">
+    	<td th:text="${checkedoutbooks.branchname}">
     </tr>
     </table> 
 </body>
