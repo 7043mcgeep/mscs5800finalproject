@@ -16,6 +16,7 @@ body {
     background-position: 0px -140px;
     background-attachment: fixed;
     background-size: 100%;
+    padding-top: 100px;
 }
 
 h1 {
@@ -56,4 +57,15 @@ input[type=submit]:hover{
 input[type=reset]:hover{
     background-color: lightblue;
     padding: 10px 16px;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+th, td {
+    padding: 8px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
 }
