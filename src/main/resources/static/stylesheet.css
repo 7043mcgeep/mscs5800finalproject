@@ -13,10 +13,10 @@ body {
     vertical-align: middle;
     background-image: url("books.png");
     background-repeat: no-repeat;
-    background-position: 0px -140px;
-    background-attachment: fixed;
+    background-position: 0px 0px;
+    background-attachment: relative;
     background-size: 100%;
-    padding-top: 125px;
+    padding-top: 175px;
 }
 
 h1 {
