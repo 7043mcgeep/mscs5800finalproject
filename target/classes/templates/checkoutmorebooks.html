@@ -35,7 +35,8 @@
     </tr>
     <tr></tr>
     <base href = "/" />
-    <tr><td><H3><A HREF="login">Logout</A></H3></td></tr>
+    <tr><td><H3><A th:href="@{'/checkedoutbooks/' + ${borrower.cardno}}">View your checked out books</A></H3></td>
+    <td><H3><A HREF="login">Logout</A></H3></td></tr>
     </table>
 </body>
 
