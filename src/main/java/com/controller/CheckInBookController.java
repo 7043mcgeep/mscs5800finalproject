@@ -1,15 +1,12 @@
 package com.controller;
 
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import java.math.BigDecimal;
-import java.util.Arrays;
 import java.util.Date;
 
 import org.springframework.stereotype.Controller;
@@ -25,7 +22,6 @@ public class CheckInBookController {
 	@RequestMapping(value = "/checkinbook/{primarykeystring}", method = RequestMethod.GET)
 	public String bookCheckInForm(@PathVariable String primarykeystring, Model model) {
 		String[] primaryKeys = primarykeystring.split("@");
-		System.out.println(Arrays.toString(primaryKeys));
 		BookLoan bkLoan = new BookLoan();
 		BookService myBookService = new BookService();
 		Book book = myBookService.getBookFromBookId(new BigDecimal(primaryKeys[0]));
