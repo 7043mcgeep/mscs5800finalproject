@@ -18,4 +18,9 @@ public class BookLoanService {
 		bookLoanDAO.deleteBookLoan(bkLoan);
 	}
 
+	public void turnInAndRateBook(BookLoan bkloan) {
+		BookLoanDAO bookLoanDAO = new BookLoanDAO();
+		bookLoanDAO.turnInAndRateBook(bkloan);
+	}
+
 }

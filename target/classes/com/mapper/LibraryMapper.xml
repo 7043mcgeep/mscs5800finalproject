@@ -80,4 +80,10 @@
 		SELECT * FROM BOOK WHERE BOOKID=#{bookid}
 	</select>
 	
+	<update id="turnInAndRateBook" parameterType="com.domain.BookLoan">
+		UPDATE BOOK_LOANS 
+		SET DATEIN = #{datein}, RATING = #{rating} 
+		WHERE CARDNO = #{cardno} AND BOOKID = #{bookid} AND BRANCHID = #{branchid}
+	</update>
+	
 </mapper>

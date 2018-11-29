@@ -26,5 +26,17 @@ public class BookLoanDAO {
 			session.close();
 		}
 	}
+
+	public void turnInAndRateBook(BookLoan bkloan) {
+		SqlSession session = ConnectionFactory.getSqlSessionFactory().openSession();
+		try {
+			session.update("com.mapper.LibraryMapper.turnInAndRateBook", bkloan); 
+			session.commit();
+		} finally {
+			session.close();
+		}
+		// TODO Auto-generated method stub
+		
+	}
 	
 }

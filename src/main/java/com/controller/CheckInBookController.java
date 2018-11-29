@@ -10,11 +10,13 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import java.math.BigDecimal;
 import java.util.Arrays;
+import java.util.Date;
 
 import org.springframework.stereotype.Controller;
 
 import com.domain.Book;
 import com.domain.BookLoan;
+import com.service.BookLoanService;
 import com.service.BookService;
 
 @Controller
@@ -37,8 +39,10 @@ public class CheckInBookController {
 	
 	@RequestMapping(value = "/checkinbook", method = RequestMethod.POST)
 	public String bookCheckInResult(@ModelAttribute BookLoan bkloan, @ModelAttribute Book book, Model model) {
-		System.out.println(bkloan);
-		System.out.println(book);
-		return "checkinbook";
+		BookLoanService myBookService = new BookLoanService();
+		bkloan.setDatein(new Date());
+		myBookService.turnInAndRateBook(bkloan);
+		model.addAttribute("cardno", bkloan.getCardno());
+		return "bookcheckinsuccess";
 	}
 }
