@@ -22,6 +22,7 @@
     <th>Book Title</th>
     <th>Date Checked Out</th>
     <th>Due Date</th>
+    <th>Check In Link</th>
     
     </tr>
     
@@ -30,6 +31,7 @@
     	<td th:text="${checkedoutbooks.title}">
     	<td th:text="${checkedoutbooks.dateout}">
     	<td th:text="${checkedoutbooks.duedate}">
+    	<td><a th:href="@{'/checkinbook/' + ${checkedoutbooks.bookid} + '@' + ${checkedoutbooks.branchid} + '@' + ${borrower.cardno}}">Check In</a>
     </tr>
     <tr></tr>
     <base href = "/" />
