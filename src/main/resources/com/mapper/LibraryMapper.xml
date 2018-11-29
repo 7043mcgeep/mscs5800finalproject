@@ -32,6 +32,13 @@
 		<result property="title" column="title"/>
 		<result property="dateout" column="dateout"/>
 		<result property="duedate" column="duedate"/>
+		<result property="branchid" column="branchid"/>
+	</resultMap>
+
+	<resultMap id="BookResult" type="com.domain.Book">
+		<id property="bookid" column="bookid"/>
+		<result property="title" column="title"/>
+		<result property="publisher" column="publisher"/>
 	</resultMap>
 
 	<select id="selectBorrowerByCardID" parameterType="String" resultMap="BorrowerResult">
@@ -63,10 +70,14 @@
 	</select>
 	
 	<select id="getCheckedOutBooks" parameterType="String" resultMap="CheckedOutBookResult">
-		SELECT B.BOOKID, B.TITLE, BL.DATEOUT, BL.DUEDATE
+		SELECT B.BOOKID, B.TITLE, BL.DATEOUT, BL.DUEDATE, BL.BRANCHID
 		FROM BOOK B, BOOK_LOANS BL, BORROWER BO, LIBRARY_BRANCH LB
 		WHERE B.BOOKID = BL.BOOKID AND BL.CARDNO = BO.CARDNO 
-		AND LB.BRANCHID = BL.BRANCHID AND BO.CARDNO = #{cardno}
+		AND LB.BRANCHID = BL.BRANCHID AND BO.CARDNO = #{cardno} AND BL.DATEIN IS NULL
+	</select>
+	
+	<select id="getBookFromBookId" parameterType="BigDecimal" resultMap="BookResult">
+		SELECT * FROM BOOK WHERE BOOKID=#{bookid}
 	</select>
 	
 </mapper>

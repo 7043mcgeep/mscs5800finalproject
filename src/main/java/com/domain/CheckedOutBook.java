@@ -9,17 +9,19 @@ public class CheckedOutBook {
 	private String title;
 	private Date dateout;
 	private Date duedate;
+	private BigDecimal branchid;
 	
 	public CheckedOutBook() {
 		super();
 	}
 
-	public CheckedOutBook(BigDecimal bookid, String title, Date dateout, Date duedate) {
+	public CheckedOutBook(BigDecimal bookid, String title, Date dateout, Date duedate, BigDecimal branchid) {
 		super();
 		this.bookid = bookid;
 		this.title = title;
 		this.dateout = dateout;
 		this.duedate = duedate;
+		this.branchid = branchid;
 	}
 
 	public BigDecimal getBookid() {
@@ -54,10 +56,18 @@ public class CheckedOutBook {
 		this.duedate = duedate;
 	}
 
+	public BigDecimal getBranchid() {
+		return branchid;
+	}
+
+	public void setBranchid(BigDecimal branchid) {
+		this.branchid = branchid;
+	}
+
 	@Override
 	public String toString() {
 		return "CheckedOutBook [bookid=" + bookid + ", title=" + title + ", dateout=" + dateout + ", duedate=" + duedate
-				+ "]";
+				+ ", branchid=" + branchid + "]";
 	}
 	
 }

@@ -23,6 +23,9 @@ public class BookLoan {
 		this.datein = datein;
 		this.rating = rating;
 	}
+	public BookLoan() {
+		// TODO Auto-generated constructor stub
+	}
 	public BigDecimal getBookid() {
 		return bookid;
 	}
