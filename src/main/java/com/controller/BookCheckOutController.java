@@ -26,7 +26,10 @@ public class BookCheckOutController {
 			String cardno = primaryKeys[2];
 			GregorianCalendar dateout = new GregorianCalendar();
 			GregorianCalendar duedate = new GregorianCalendar();
-			duedate.set(Calendar.MONTH, (duedate.get(Calendar.MONTH) + 1) % 12);
+			int duemonth = (duedate.get(Calendar.MONTH) + 1) % 12;
+			duedate.set(Calendar.MONTH, duemonth);
+			if (duemonth == 0)
+				duedate.set(Calendar.YEAR, duedate.get(Calendar.YEAR) + 1);
 			BookLoan bkloan = new BookLoan(new BigDecimal(bookid), new BigDecimal(branchid), cardno, dateout.getTime(), duedate.getTime(), null, null);
 			BookLoanService myBookLoanService = new BookLoanService();
 			myBookLoanService.insertBookLoan(bkloan);

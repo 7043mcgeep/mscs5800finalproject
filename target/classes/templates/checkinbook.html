@@ -18,7 +18,6 @@
 <tr><td>Book ID</td><td><input type="text" th:field="${bkloan.bookid}" readonly="readonly"/></td></tr>
 <tr><td>Branch ID</td><td><input type="text" th:field="${bkloan.branchid}" readonly="readonly"/></td></tr>
 <tr><td>Card Number</td><td><input type="text" th:field="${bkloan.cardno}" readonly="readonly"/></td></tr>
-
 <tr><td>Rating</td><td>
 	<select th:field="${bkloan.rating}">
     	<option th:each="i : ${#numbers.sequence(1, 10)}" th:value="${i}" th:text="${i}"></option>
